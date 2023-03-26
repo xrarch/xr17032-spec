@@ -1,6 +1,5 @@
-[
+chapters = [
     "registers",
     "memory",
     "opcodes",
-    "notes"
 ]

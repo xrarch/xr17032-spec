@@ -1,0 +1,26 @@
+name = "Example"
+
+mnemonic = "EX imm16"
+
+encoding = "nnnn nnnn nnnn nnnn ssss sddd dd11 1100"
+
+text = """
+
+This is where the full English explanation of an opcode goes. 
+
+"""
+
+implementation = """
+
+// put the exact code of how its implemented in xremu here. md.py adds backticks.
+
+"""
+
+notes = """
+
+Any auxiliary notes (such as referring to other opcodes or document sections) goes here.
+
+This is the only optional opcode toml key.
+
+"""
+

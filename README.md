@@ -4,9 +4,11 @@
 
 The following packages must be installed:
 
- - python3
+ - python3.11
  - pandoc
- - wkhtmltopdf
+ - texlive-latex-base
+ - texlive-latex-recommended
+ - lmodern
 
 ## Building
 

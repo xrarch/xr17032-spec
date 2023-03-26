@@ -8,7 +8,7 @@ subtitle: Draft 6
 
 ---
 
-<div style='page-break-after: always;'></div>
+\pagebreak
 
 # SPECIFICATION COPYRIGHT
 
@@ -44,13 +44,13 @@ OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE
 OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 
-<div style='page-break-after: always;'></div>
+\pagebreak
 
 # REGISTERS
 
 &nbsp;  
 
-<div style='page-break-after: always;'></div>
+\pagebreak
 
 # MEMORY
 
@@ -66,7 +66,7 @@ TODO:
 
 &nbsp;  
 
-<div style='page-break-after: always;'></div>
+\pagebreak
 
 # OPCODES
 
