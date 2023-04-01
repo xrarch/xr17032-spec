@@ -4,7 +4,7 @@ title: XR/17032 Processor Specification
 
 date: April 1, 2023
 
-subtitle: Draft 9
+subtitle: Draft 10
 
 ---
 
@@ -80,7 +80,7 @@ General purpose registers are encoded with 5 bits in instruction opcodes using r
 
 | Name       | Encoding    | Description
 | ---------- | ----------- | ----------
-| ZERO       | 00000       Zero Register: always reads zero, ignores writes.
+| ZERO       | 00000       | Zero Register: always reads zero, ignores writes.
 | T0         | 00001       | 
 | T1         | 00010       | 
 | T2         | 00011       | 
