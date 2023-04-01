@@ -4,7 +4,7 @@ title: XR/17032 Processor Specification
 
 date: April 1, 2023
 
-subtitle: Draft 8
+subtitle: Draft 9
 
 ---
 
@@ -112,7 +112,6 @@ General purpose registers are encoded with 5 bits in instruction opcodes using r
 | S18 / TP   | 11101       | **AISIX:** Scratch register 18. **MINTIA:** Thread Local Storage Pointer
 | SP         | 11110       | Stack Pointer
 | LR         | 11111       | Link Register
-| ---------- | ----------- | ----------
 
 
 
