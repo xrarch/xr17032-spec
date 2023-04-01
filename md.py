@@ -115,6 +115,8 @@ for chapter in chapters_data["chapters"]:
 
 			result += f"## {name} - {mnemonic}\n\n&nbsp;  \n\n"
 
+			result += "### Encoding\n\n"
+
 			result += f"`{encoding}`\n\n&nbsp;  \n\n"
 			
 			result += f"{text}\n\n&nbsp;  \n\n"
