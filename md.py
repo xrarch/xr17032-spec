@@ -119,6 +119,7 @@ for chapter in chapters_data["chapters"]:
 
 			result += f"`{encoding}`\n\n&nbsp;  \n\n"
 			
+			result += "### Description\n\n"
 			result += f"{text}\n\n&nbsp;  \n\n"
 			
 			result += "### Implementation\n\n"
