@@ -43,6 +43,8 @@ try:
 except:
 	print("ERROR: license file open/read exception")
 
+header_includes = "\\rowcolors{2}{gray!0}{gray!10}"
+
 result += f"""
 ---
 title: XR/17032 Processor Specification
@@ -50,6 +52,9 @@ title: XR/17032 Processor Specification
 date: {current_date_str}
 
 subtitle: Draft {draft_number_str}
+
+classoption: table
+header-includes: {header_includes}
 
 ---
 
