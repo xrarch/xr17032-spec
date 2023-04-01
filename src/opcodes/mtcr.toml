@@ -1,0 +1,25 @@
+name = "???"
+
+mnemonic = "MTCR Cs, Ra"
+
+encoding = "1110 0000 0000 ssss aaaa a000 0010 1001"
+
+text = """
+
+Sets the value of a control register to the value stored in a general purpose register.
+
+"""
+
+implementation = """
+
+ra = (ir >> 11) & 31;
+rb = (ir >> 16) & 15;
+
+// ...
+
+ControlReg[rb] = Reg[ra];
+
+"""
+
+notes = """"""
+
