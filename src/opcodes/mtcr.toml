@@ -15,8 +15,6 @@ implementation = """
 ra = (ir >> 11) & 31;
 rb = (ir >> 16) & 15;
 
-// ...
-
 ControlReg[rb] = Reg[ra];
 
 """
