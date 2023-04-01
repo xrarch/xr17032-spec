@@ -1,4 +1,4 @@
-name = "???"
+name = "Move To Control Register"
 
 mnemonic = "MTCR Cs, Ra"
 
