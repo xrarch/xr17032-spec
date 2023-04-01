@@ -82,7 +82,7 @@ for chapter in chapters_data["chapters"]:
 
 	for filename in sorted(os.listdir("src/" + chapter)):
 		if ".toml" not in filename:
-			pass
+			continue
 
 		f_str = ""
 		try:
