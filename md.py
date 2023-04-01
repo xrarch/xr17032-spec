@@ -54,6 +54,7 @@ date: {current_date_str}
 subtitle: Draft {draft_number_str}
 
 classoption: table
+
 header-includes: {header_includes}
 
 ---
