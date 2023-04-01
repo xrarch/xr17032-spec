@@ -1,0 +1,27 @@
+name = "Move From Control Register"
+
+mnemonic = "MFCR Rd, Cs"
+
+encoding = "1111 0000 0000 ssss 0000 0ddd dd10 1001"
+
+text = """
+
+Sets the value of a general purpose register to the value stored in a control register.
+
+"""
+
+implementation = """
+
+rd = (ir >> 6) & 31;
+rb = (ir >> 16) & 15;
+
+if (rd == 0)
+    break;
+
+Reg[rd] = ControlReg[rb];
+
+
+"""
+
+notes = """"""
+

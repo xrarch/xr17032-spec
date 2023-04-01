@@ -4,7 +4,7 @@ title: XR/17032 Processor Specification
 
 date: April 1, 2023
 
-subtitle: Draft 13
+subtitle: Draft 14
 
 ---
 
@@ -139,6 +139,43 @@ TODO:
 
 &nbsp;  
 
+## Move From Control Register - MFCR Rd, Cs
+
+&nbsp;  
+
+### Encoding
+
+`1111 0000 0000 ssss 0000 0ddd dd10 1001`
+
+&nbsp;  
+
+### Description
+
+
+Sets the value of a general purpose register to the value stored in a control register.
+
+
+
+&nbsp;  
+
+### Implementation
+
+```
+
+rd = (ir >> 6) & 31;
+rb = (ir >> 16) & 15;
+
+if (rd == 0)
+    break;
+
+Reg[rd] = ControlReg[rb];
+
+
+
+```
+
+&nbsp;  
+
 ## Move To Control Register - MTCR Cs, Ra
 
 &nbsp;  
@@ -164,8 +201,6 @@ Sets the value of a control register to the value stored in a general purpose re
 
 ra = (ir >> 11) & 31;
 rb = (ir >> 16) & 15;
-
-// ...
 
 ControlReg[rb] = Reg[ra];
 
