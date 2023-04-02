@@ -2,7 +2,7 @@ name = "Move To Control Register"
 
 mnemonic = "MTCR Cs, Ra"
 
-encoding = "1110 0000 0000 ssss aaaa a000 0010 1001"
+encoding = "111000000000ssssaaaaa00000101001"
 
 text = """
 

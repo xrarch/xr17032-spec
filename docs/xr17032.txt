@@ -4,11 +4,15 @@ title: XR/17032 Processor Specification
 
 date: April 2, 2023
 
-subtitle: Draft 16
+subtitle: Draft 17
 
 classoption: table
 
-header-includes: \rowcolors{2}{gray!0}{gray!10}
+header-includes: | 
+	\rowcolors{2}{gray!0}{gray!10}
+	\usepackage{fancyhdr}
+	\pagestyle{fancy}
+
 
 ---
 
@@ -149,9 +153,9 @@ TODO:
 
 ### Encoding
 
-`1111 0000 0000 ssss 0000 0ddd dd10 1001`
-
-&nbsp;  
+| [31:20] | [19:16] | [15:11] | [10:6] | [5:0] |
+| :-: | :-: | :-: | :-: | :-: |
+| `111100000000`| `ssss`| `00000`| `ddddd`| `101001`|
 
 ### Description
 
@@ -178,6 +182,8 @@ Reg[rd] = ControlReg[rb];
 
 ```
 
+\pagebreak
+
 &nbsp;  
 
 ## Move To Control Register - MTCR Cs, Ra
@@ -186,9 +192,9 @@ Reg[rd] = ControlReg[rb];
 
 ### Encoding
 
-`1110 0000 0000 ssss aaaa a000 0010 1001`
-
-&nbsp;  
+| [31:20] | [19:16] | [15:11] | [10:0] |
+| :-: | :-: | :-: | :-: |
+| `111000000000`| `ssss`| `aaaaa`| `00000101001`|
 
 ### Description
 
@@ -211,6 +217,8 @@ ControlReg[rb] = Reg[ra];
 
 ```
 
+\pagebreak
+
 &nbsp;  
 
 ## ??? - TBFN
@@ -219,9 +227,9 @@ ControlReg[rb] = Reg[ra];
 
 ### Encoding
 
-`0001 0000 0000 0000 0000 0000 0010 1001`
-
-&nbsp;  
+| [31:0] |
+| :-: |
+| `00010000000000000000000000101001`|
 
 ### Description
 
@@ -254,6 +262,8 @@ for (int i = 0; i < TLBWAYS; i++) {
 
 ```
 
+\pagebreak
+
 &nbsp;  
 
 ## ??? - TBLD ???, ???
@@ -262,9 +272,9 @@ for (int i = 0; i < TLBWAYS; i++) {
 
 ### Encoding
 
-`0011 0000 0000 0000 aaaa addd dd10 1001`
-
-&nbsp;  
+| [31:16] | [15:11] | [10:6] | [5:0] |
+| :-: | :-: | :-: | :-: |
+| `0011000000000000`| `aaaaa`| `ddddd`| `101001`|
 
 ### Description
 
@@ -279,6 +289,9 @@ for (int i = 0; i < TLBWAYS; i++) {
 
 ```
 
+rd = (ir >> 6) & 31;
+ra = (ir >> 11) & 31;
+
 pde = Reg[ra];
   
 if (!(pde & 1)) {
@@ -291,6 +304,8 @@ CPUReadLong(((pde >> 5) << 12) | ((ControlReg[TBHI] & 1023) << 2), &Reg[rd]);
 
 ```
 
+\pagebreak
+
 &nbsp;  
 
 ## ??? - TBRD
@@ -299,9 +314,9 @@ CPUReadLong(((pde >> 5) << 12) | ((ControlReg[TBHI] & 1023) << 2), &Reg[rd]);
 
 ### Encoding
 
-`0010 0000 0000 0000 0000 0000 0010 1001`
-
-&nbsp;  
+| [31:0] |
+| :-: |
+| `00100000000000000000000000101001`|
 
 ### Description
 
@@ -323,6 +338,8 @@ ControlReg[TBHI] = tlbe >> 32;
 
 
 ```
+
+\pagebreak
 
 &nbsp;  
 

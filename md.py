@@ -43,7 +43,11 @@ try:
 except:
 	print("ERROR: license file open/read exception")
 
-header_includes = "\\rowcolors{2}{gray!0}{gray!10}"
+header_includes = """| 
+	\\rowcolors{2}{gray!0}{gray!10}
+	\\usepackage{fancyhdr}
+	\\pagestyle{fancy}
+"""
 
 result += f"""
 ---
@@ -123,8 +127,73 @@ for chapter in chapters_data["chapters"]:
 
 			result += "### Encoding\n\n"
 
-			result += f"`{encoding}`\n\n&nbsp;  \n\n"
-			
+
+			encoding_bits_total	= len(encoding)
+
+			current_encoding_bit = encoding_bits_total - 1
+			current_encoding_index = 0
+
+			encoding_sections = []
+
+			c = encoding[0]
+			start_c = c
+
+			ENCODING_STATE_DIGIT = 1
+			ENCODING_STATE_LETTER = 2
+
+			if c.isdigit():
+				encoding_state = ENCODING_STATE_DIGIT
+			else:
+				encoding_state = ENCODING_STATE_LETTER
+
+			section = { "bit_end": current_encoding_bit,
+						"bit_start": -1,
+						"text": "" }
+
+			for c in encoding:
+				if encoding_state == ENCODING_STATE_DIGIT:
+					if c.isdigit(): # process digit into current section
+						section["text"] += c
+					else: # change states, chop section make new section put into sections
+						encoding_state = ENCODING_STATE_LETTER
+						section["bit_start"] = current_encoding_bit + 1
+						encoding_sections.append(section)
+						section = { "bit_end": current_encoding_bit,
+									"bit_start": -1,
+									"text": c }
+						start_c = c
+				elif encoding_state == ENCODING_STATE_LETTER:
+					if not c.isdigit() and c == start_c: # process letter into current section
+						section["text"] += c
+					else: # change states, chop section make new section put into sections
+						if c.isdigit():
+							encoding_state = ENCODING_STATE_DIGIT
+						else: # is letter and c != start_c
+							encoding_state = ENCODING_STATE_LETTER
+						section["bit_start"] = current_encoding_bit + 1
+						encoding_sections.append(section)
+						section = { "bit_end": current_encoding_bit,
+									"bit_start": -1,
+									"text": c }
+						start_c = c
+				current_encoding_index += 1
+				current_encoding_bit -= 1
+
+			if section["text"] != "":
+				section["bit_start"] = 0
+				encoding_sections.append(section)
+
+			for section in encoding_sections:
+				result += f"| [{section['bit_end']}:{section['bit_start']}] "
+			result += "|\n"
+			for section in encoding_sections:
+				result += "| :-: "
+			result += "|\n"
+			for section in encoding_sections:
+				result += f"| `{section['text']}`"
+			result += "|\n\n"
+
+
 			result += "### Description\n\n"
 			result += f"{text}\n\n&nbsp;  \n\n"
 			
@@ -134,6 +203,9 @@ for chapter in chapters_data["chapters"]:
 			if notes != "":
 				result += "### Notes\n\n\n"
 				result += f"{notes}\n\n"
+
+			result += f"{PAGEBREAK}\n\n"
+
 
 		else:			
 			if "text" in f_data:

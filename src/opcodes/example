@@ -2,7 +2,7 @@ name = "Example"
 
 mnemonic = "EX imm16"
 
-encoding = "nnnn nnnn nnnn nnnn ssss sddd dd11 1100"
+encoding = "nnnnnnnnnnnnnnnnsssssddddd111100"
 
 text = """
 

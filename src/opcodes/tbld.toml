@@ -2,7 +2,7 @@ name = "???"
 
 mnemonic = "TBLD ???, ???"
 
-encoding = "0011 0000 0000 0000 aaaa addd dd10 1001"
+encoding = "0011000000000000aaaaaddddd101001"
 
 text = """
 
@@ -11,6 +11,9 @@ text = """
 """
 
 implementation = """
+
+rd = (ir >> 6) & 31;
+ra = (ir >> 11) & 31;
 
 pde = Reg[ra];
   

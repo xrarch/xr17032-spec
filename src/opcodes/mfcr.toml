@@ -2,7 +2,7 @@ name = "Move From Control Register"
 
 mnemonic = "MFCR Rd, Cs"
 
-encoding = "1111 0000 0000 ssss 0000 0ddd dd10 1001"
+encoding = "111100000000ssss00000ddddd101001"
 
 text = """
 
