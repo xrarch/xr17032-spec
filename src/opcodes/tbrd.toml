@@ -1,0 +1,23 @@
+name = "???"
+
+mnemonic = "TBRD"
+
+encoding = "0010 0000 0000 0000 0000 0000 0010 1001"
+
+text = """
+
+???
+
+"""
+
+implementation = """
+
+tlbe = TLB[ControlReg[TBINDEX] & (TLBSIZE - 1)];
+  
+ControlReg[TBLO] = tlbe;
+ControlReg[TBHI] = tlbe >> 32;
+
+"""
+
+notes = """"""
+

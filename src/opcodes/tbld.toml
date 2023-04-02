@@ -1,0 +1,27 @@
+name = "???"
+
+mnemonic = "TBLD ???, ???"
+
+encoding = "0011 0000 0000 0000 aaaa addd dd10 1001"
+
+text = """
+
+???
+
+"""
+
+implementation = """
+
+pde = Reg[ra];
+  
+if (!(pde & 1)) {
+    Reg[rd] = 0;
+    break;
+}
+  
+CPUReadLong(((pde >> 5) << 12) | ((ControlReg[TBHI] & 1023) << 2), &Reg[rd]);
+
+"""
+
+notes = """"""
+

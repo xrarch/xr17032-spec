@@ -1,0 +1,33 @@
+name = "???"
+
+mnemonic = "TBFN"
+
+encoding = "0001 0000 0000 0000 0000 0000 0010 1001"
+
+text = """
+
+???
+
+"""
+
+implementation = """
+
+ControlReg[TBINDEX] = 0x80000000;
+  
+ControlReg[TBINDEX] = 0x80000000;
+  
+vpn = ControlReg[TBHI] & 0xFFFFF;
+  
+index = (vpn & ((1 << (TLBSETLOG - 1)) - 1)) | (vpn >> 19 << (TLBSETLOG - 1));
+  
+for (int i = 0; i < TLBWAYS; i++) {
+    if ((TLB[index * TLBWAYS + i] >> 32) == ControlReg[TBHI]) {
+        ControlReg[TBINDEX] = index * TLBWAYS + i;
+        break;
+    }
+}
+
+"""
+
+notes = """"""
+
